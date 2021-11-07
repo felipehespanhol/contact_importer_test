@@ -1,0 +1,11 @@
+body > header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+
+  & > div {
+    display: flex;
+    align-self: center;
+    padding: 0 2rem;
+  }
+}
