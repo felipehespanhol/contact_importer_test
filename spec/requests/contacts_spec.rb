@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Contacts", type: :request do
-  describe "GET /index" do
+  describe "GET /" do
     before do
       sign_in create(:user)
     end

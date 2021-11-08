@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      contact:
+        one: Contact
+        other: Contacts
+      import:
+        one: Import
+        other: Imports
