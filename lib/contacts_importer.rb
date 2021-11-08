@@ -8,8 +8,12 @@ class ContactsImporter
   end
 
   def import!
+    import.processing!
+
     ContactParser.parse(csv_content, column_options).map do |contact_data|
       Contact.create!(contact_data)
     end
+
+    import.finished!
   end
 end

@@ -1,8 +1,16 @@
 FactoryBot.define do
   factory :contact do
-    name { Faker::Name.name }
+    name do
+      [
+        "Grover Sanford V",
+        "Pres Slyvia Marquardt",
+        "Cliff Senger",
+        "Leighann Yundt",
+        "Marjorie Swaniawski",
+      ].sample
+    end
     date_of_birth { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    phone { Faker::PhoneNumber.phone_number }
+    phone { ['(+57) 320 432 05 09', '(+57) 320-432-05-09'].sample }
     address { Faker::Address.full_address }
     email { Faker::Internet.email }
 
