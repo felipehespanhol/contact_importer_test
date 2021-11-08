@@ -1,2 +1,46 @@
-<h1>Imports#new</h1>
-<p>Find me in app/views/imports/new.html.erb</p>
+<h1>New Import</h1>
+
+<%= form_for @import do |f| %>
+  <%= csrf_meta_tags %>
+
+  <div>
+    <%= f.label :file %>
+    <%= f.file_field :file %>
+  </div>
+
+  <fieldset>
+    <legend>CSV column names</legend>
+
+    <div>
+      <%= label_tag 'Name' %>
+      <%= text_field_tag 'import[column_options][name]', 'Name' %>
+    </div>
+
+    <div>
+      <%= label_tag 'Email' %>
+      <%= text_field_tag 'import[column_options][email]', 'Email' %>
+    </div>
+
+    <div>
+      <%= label_tag 'Address' %>
+      <%= text_field_tag 'import[column_options][address]', 'Address' %>
+    </div>
+
+    <div>
+      <%= label_tag 'Phone' %>
+      <%= text_field_tag 'import[column_options][phone]', 'Phone' %>
+    </div>
+
+    <div>
+      <%= label_tag 'Date of birth' %>
+      <%= text_field_tag 'import[column_options][date_of_birth]', 'Date of birth' %>
+    </div>
+
+    <div>
+      <%= label_tag 'Credit card' %>
+      <%= text_field_tag 'import[column_options][credit_card]', 'Credit card' %>
+    </div>
+  </fieldset>
+
+  <%= f.submit 'Send' %>
+<% end %>
