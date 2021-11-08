@@ -1,8 +1,6 @@
-require 'contacts_importer'
-
 class ImportsController < ApplicationController
   def index
-    @imports = Import.page(params[:page])
+    @imports = Import.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -13,10 +11,9 @@ class ImportsController < ApplicationController
     @import = Import.new(import_params)
 
     if @import.save
-      ContactsImporter.new(@import).import!
+      ImporterWorker.perform_async(@import.id)
 
-      flash[:notice] = 'Import saved successfully.'
-      redirect_to contacts_path
+      redirect_to contacts_path, notice: 'Import saved successfully.'
     else
       flash.now[:alert] = @import.errors.full_messages.first
       render :new

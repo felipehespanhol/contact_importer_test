@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'contacts_importer'
 
 RSpec.describe ContactsImporter do
   let(:column_options) do
