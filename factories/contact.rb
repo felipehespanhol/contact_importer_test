@@ -19,7 +19,7 @@ FactoryBot.define do
     end
 
     trait :visa do
-      credit_card { "5555555555554444" }
+      credit_card { "4111111111111111" }
       franchise { "Visa" }
     end
   end

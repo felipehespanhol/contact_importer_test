@@ -5,4 +5,6 @@ class Import < ApplicationRecord
     failed: 2,
     finished: 3
   }
+
+  validates :csv_content, presence: true
 end
