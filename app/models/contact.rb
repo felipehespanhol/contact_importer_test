@@ -17,6 +17,24 @@ class Contact < ApplicationRecord
   after_initialize :set_franchise
   before_validation :set_franchise
 
+  def credit_card
+    return if encrypted_credit_card.blank?
+
+    EncryptionService.decrypt(encrypted_credit_card)
+  end
+
+  def obfuscated_credit_card
+    return '' if credit_card.blank?
+
+    "**** **** **** #{credit_card.last(4)}"
+  end
+
+  def credit_card=(value)
+    return if value.blank?
+
+    self.encrypted_credit_card = EncryptionService.encrypt(value)
+  end
+
   private
 
   def set_franchise

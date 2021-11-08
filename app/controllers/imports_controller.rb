@@ -1,3 +1,5 @@
+require 'contacts_importer'
+
 class ImportsController < ApplicationController
   def index
     @imports = Import.all
@@ -11,6 +13,8 @@ class ImportsController < ApplicationController
     @import = Import.new(import_params)
 
     if @import.save
+      ContactsImporter.new(@import).import!
+
       flash[:notice] = 'Import saved successfully.'
       redirect_to imports_path
     else
