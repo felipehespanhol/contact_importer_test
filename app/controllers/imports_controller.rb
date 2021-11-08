@@ -2,7 +2,7 @@ require 'contacts_importer'
 
 class ImportsController < ApplicationController
   def index
-    @imports = Import.all
+    @imports = Import.page(params[:page])
   end
 
   def new
