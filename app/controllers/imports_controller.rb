@@ -16,7 +16,7 @@ class ImportsController < ApplicationController
       ContactsImporter.new(@import).import!
 
       flash[:notice] = 'Import saved successfully.'
-      redirect_to imports_path
+      redirect_to contacts_path
     else
       flash.now[:alert] = @import.errors.full_messages.first
       render :new
