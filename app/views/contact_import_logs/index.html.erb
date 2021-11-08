@@ -1,0 +1,20 @@
+<h1>Contact Import Failures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Row</th>
+      <th>Failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contact_import_logs.each do |import| %>
+      <tr>
+        <td><%= import.row %></td>
+        <td><%= import.failure %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @contact_import_logs %>

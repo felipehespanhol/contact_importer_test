@@ -19,6 +19,8 @@
         <%= link_to Contact.model_name.human(count: 2), contacts_path %>
         <span style="margin: 0 1rem"> | </span>
         <%= link_to Import.model_name.human(count: 2), imports_path %>
+        <span style="margin: 0 1rem"> | </span>
+        <%= link_to ContactImportLog.model_name.human(count: 2), contact_import_logs_path %>
       </div>
       <div>
         <% if user_signed_in? %>
