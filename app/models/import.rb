@@ -1,3 +1,5 @@
+require 'contact_parser'
+
 class Import < ApplicationRecord
   attr_accessor :file
 
